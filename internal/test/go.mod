@@ -8,7 +8,7 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/stretchr/testify v1.8.4
 	github.com/testcontainers/testcontainers-go v0.21.0
-	github.com/zeslava/go-mongo-iter v0.0.0-00010101000000-000000000000
+	github.com/zeslava/go-mongo-iter v0.1.0
 	go.mongodb.org/mongo-driver v1.12.0
 )
 
@@ -54,5 +54,3 @@ require (
 	google.golang.org/protobuf v1.28.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
-
-replace github.com/zeslava/go-mongo-iter => ../..
