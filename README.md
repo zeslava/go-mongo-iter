@@ -1,2 +1,2 @@
 # go-mongo-iter
-Go mogno iterator
+Go MongoDB iterator
