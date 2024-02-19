@@ -2,10 +2,9 @@ package miter
 
 import (
 	"context"
-
-	"go.mongodb.org/mongo-driver/mongo"
 )
 
+// MongoIterBatch interface for batch items iteration
 type MongoIterBatch[T any] interface {
 	Next(ctx context.Context) bool
 	Items() []T
@@ -13,7 +12,7 @@ type MongoIterBatch[T any] interface {
 	Err() error
 }
 
-func NewMongoIterBatch[T any](cur *mongo.Cursor, size int) MongoIterBatch[T] {
+func NewMongoIterBatch[T any](cur Cursor, size int) MongoIterBatch[T] {
 	return &MongoIterBatchImpl[T]{
 		cur:   cur,
 		size:  size,
@@ -22,7 +21,7 @@ func NewMongoIterBatch[T any](cur *mongo.Cursor, size int) MongoIterBatch[T] {
 }
 
 type MongoIterBatchImpl[T any] struct {
-	cur   *mongo.Cursor
+	cur   Cursor
 	size  int
 	items []T
 	err   error

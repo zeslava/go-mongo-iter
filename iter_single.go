@@ -2,10 +2,9 @@ package miter
 
 import (
 	"context"
-
-	"go.mongodb.org/mongo-driver/mongo"
 )
 
+// MongoIterSingle interface for single item iteration
 type MongoIterSingle[T any] interface {
 	Next(ctx context.Context) bool
 	Item() T
@@ -13,12 +12,12 @@ type MongoIterSingle[T any] interface {
 	Err() error
 }
 
-func NewMongoIterSingle[T any](cur *mongo.Cursor) MongoIterSingle[T] {
+func NewMongoIterSingle[T any](cur Cursor) MongoIterSingle[T] {
 	return &MongoIterSingleImpl[T]{cur: cur}
 }
 
 type MongoIterSingleImpl[T any] struct {
-	cur  *mongo.Cursor
+	cur  Cursor
 	item T
 	err  error
 }
